@@ -1,0 +1,223 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{74430764-7EDB-435A-9DA8-9BFFA7D2E57F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{746419AD-08F8-4DE1-99DE-05E630F44A42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{37D34C2B-A5A7-40F2-B080-4F63FD628820}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infrastructure", "5 - Infrastructure", "{04AADCA2-41A0-4319-BE91-63109C450AF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{D8B9FCC3-BE84-4F4A-A04E-AC81C5954AC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{D299D001-5068-443B-BDFE-1051B0B3859B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM.Bazaar.Application", "src\PM.Bazaar.Application\PM.Bazaar.Application.csproj", "{A7C523A9-F7EF-4561-AA19-46108166B566}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM.Bazaar.Domain", "src\PM.Bazaar.Domain\PM.Bazaar.Domain.csproj", "{A500A50E-7BF0-48C1-B6FC-0D25229ADCC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM.Bazaar.Infrastructure.Data", "src\PM.Bazaar.Infrastructure.Data\PM.Bazaar.Infrastructure.Data.csproj", "{9D1A61AD-CB24-4124-B895-EE498EC4BE7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM.Bazaar.Infrastructure.CrossCutting.IoC", "src\PM.Bazaar.Infrastructure.CrossCutting.IoC\PM.Bazaar.Infrastructure.CrossCutting.IoC.csproj", "{7940BFEA-DF0D-434E-BD46-1E7B41D420B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM.Bazaar.Infrastructure.CrossCutting.Identity", "src\PM.Bazaar.Infrastructure.CrossCutting.Identity\PM.Bazaar.Infrastructure.CrossCutting.Identity.csproj", "{0ED09C81-63B3-4F2B-A298-5B4C933D47B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM.Bazaar.Infrastructure.CrossCutting.Configuration", "src\PM.Bazaar.Infrastructure.CrossCutting.Configuration\PM.Bazaar.Infrastructure.CrossCutting.Configuration.csproj", "{30ED86F1-04A2-46CF-B130-72BBC7CD5AA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM.Bazaar.Services.WebApi", "src\PM.Bazaar.Services.WebApi\PM.Bazaar.Services.WebApi.csproj", "{DD052411-802B-4A37-B9BD-188C2B37B00D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- App", "1- App", "{DB4DE6AB-2144-4811-8549-685CA7139218}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\index.html = src\PM.Bazaar.Presentation.App\index.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "angular", "angular", "{54449B87-455F-462C-B3A3-C9F09DAB95AF}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\angular\app.js = src\PM.Bazaar.Presentation.App\angular\app.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "controllers", "controllers", "{BFBECD6D-BAF1-43AE-BBF1-3CB1509A9F37}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\angular\controllers\account-controller.js = src\PM.Bazaar.Presentation.App\angular\controllers\account-controller.js
+		src\PM.Bazaar.Presentation.App\angular\controllers\advertising-controller.js = src\PM.Bazaar.Presentation.App\angular\controllers\advertising-controller.js
+		src\PM.Bazaar.Presentation.App\angular\controllers\home-controller.js = src\PM.Bazaar.Presentation.App\angular\controllers\home-controller.js
+		src\PM.Bazaar.Presentation.App\angular\controllers\navbar-controller.js = src\PM.Bazaar.Presentation.App\angular\controllers\navbar-controller.js
+		src\PM.Bazaar.Presentation.App\angular\controllers\search-controller.js = src\PM.Bazaar.Presentation.App\angular\controllers\search-controller.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "directives", "directives", "{D408FE30-945D-4D9E-B476-A4AA09C642CE}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\angular\directives\bazaar-error.js = src\PM.Bazaar.Presentation.App\angular\directives\bazaar-error.js
+		src\PM.Bazaar.Presentation.App\angular\directives\bazaar-errors.js = src\PM.Bazaar.Presentation.App\angular\directives\bazaar-errors.js
+		src\PM.Bazaar.Presentation.App\angular\directives\bazaar-validation.js = src\PM.Bazaar.Presentation.App\angular\directives\bazaar-validation.js
+		src\PM.Bazaar.Presentation.App\angular\directives\croppie.js = src\PM.Bazaar.Presentation.App\angular\directives\croppie.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "factories", "factories", "{8BA0E67F-3DE6-4599-BE65-E9C5B1C12316}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\angular\factories\bazaar-service.js = src\PM.Bazaar.Presentation.App\angular\factories\bazaar-service.js
+		src\PM.Bazaar.Presentation.App\angular\factories\interceptor.js = src\PM.Bazaar.Presentation.App\angular\factories\interceptor.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "filters", "filters", "{F2968DAC-2C06-4908-BB6E-B22A0E991FCA}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\angular\filters\prettydate-filter.js = src\PM.Bazaar.Presentation.App\angular\filters\prettydate-filter.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{50F58969-6BF3-4D7D-8E73-E88B9FBEE94D}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\angular\services\account-service.js = src\PM.Bazaar.Presentation.App\angular\services\account-service.js
+		src\PM.Bazaar.Presentation.App\angular\services\advertising-service.js = src\PM.Bazaar.Presentation.App\angular\services\advertising-service.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "views", "views", "{34D1757E-41CA-42EC-9267-B6745C5740DD}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\angular\views\ad.html = src\PM.Bazaar.Presentation.App\angular\views\ad.html
+		src\PM.Bazaar.Presentation.App\angular\views\home.html = src\PM.Bazaar.Presentation.App\angular\views\home.html
+		src\PM.Bazaar.Presentation.App\angular\views\login.html = src\PM.Bazaar.Presentation.App\angular\views\login.html
+		src\PM.Bazaar.Presentation.App\angular\views\profile.html = src\PM.Bazaar.Presentation.App\angular\views\profile.html
+		src\PM.Bazaar.Presentation.App\angular\views\publish.html = src\PM.Bazaar.Presentation.App\angular\views\publish.html
+		src\PM.Bazaar.Presentation.App\angular\views\register.html = src\PM.Bazaar.Presentation.App\angular\views\register.html
+		src\PM.Bazaar.Presentation.App\angular\views\search.html = src\PM.Bazaar.Presentation.App\angular\views\search.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{F0E6E71D-6F46-477B-B0F5-135554AA220F}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\css\bootstrap.min.css = src\PM.Bazaar.Presentation.App\css\bootstrap.min.css
+		src\PM.Bazaar.Presentation.App\css\loading-bar.min.css = src\PM.Bazaar.Presentation.App\css\loading-bar.min.css
+		src\PM.Bazaar.Presentation.App\css\mdb.min.css = src\PM.Bazaar.Presentation.App\css\mdb.min.css
+		src\PM.Bazaar.Presentation.App\css\ng-croppie.min.css = src\PM.Bazaar.Presentation.App\css\ng-croppie.min.css
+		src\PM.Bazaar.Presentation.App\css\site.css = src\PM.Bazaar.Presentation.App\css\site.css
+		src\PM.Bazaar.Presentation.App\css\style.min.css = src\PM.Bazaar.Presentation.App\css\style.min.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "font", "font", "{B08F9740-64BC-45E1-B38C-21D98E4E0D8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "roboto", "roboto", "{7633D77E-5A64-4E62-B5CF-83DFC0211860}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Bold.eot = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Bold.eot
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Bold.ttf = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Bold.ttf
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Bold.woff = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Bold.woff
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Bold.woff2 = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Bold.woff2
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Light.eot = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Light.eot
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Light.ttf = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Light.ttf
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Light.woff = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Light.woff
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Light.woff2 = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Light.woff2
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Medium.eot = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Medium.eot
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Medium.ttf = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Medium.ttf
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Medium.woff = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Medium.woff
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Medium.woff2 = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Medium.woff2
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Regular.eot = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Regular.eot
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Regular.ttf = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Regular.ttf
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Regular.woff = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Regular.woff
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Regular.woff2 = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Regular.woff2
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Thin.eot = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Thin.eot
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Thin.ttf = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Thin.ttf
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Thin.woff = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Thin.woff
+		src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Thin.woff2 = src\PM.Bazaar.Presentation.App\font\roboto\Roboto-Thin.woff2
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{556ECC6B-CD1D-4163-B009-DC46AFC106CD}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\img\logo-blue.png = src\PM.Bazaar.Presentation.App\img\logo-blue.png
+		src\PM.Bazaar.Presentation.App\img\logo.png = src\PM.Bazaar.Presentation.App\img\logo.png
+		src\PM.Bazaar.Presentation.App\img\ring.gif = src\PM.Bazaar.Presentation.App\img\ring.gif
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "svg", "svg", "{B25DDABF-AA6F-4C7B-A028-65674F0071DC}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\img\svg\arrow_left.svg = src\PM.Bazaar.Presentation.App\img\svg\arrow_left.svg
+		src\PM.Bazaar.Presentation.App\img\svg\arrow_right.svg = src\PM.Bazaar.Presentation.App\img\svg\arrow_right.svg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{B81E35FC-69CD-406F-922F-A35F12B83B98}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\libs\angular-messages.min.js = src\PM.Bazaar.Presentation.App\libs\angular-messages.min.js
+		src\PM.Bazaar.Presentation.App\libs\angular-resource.min.js = src\PM.Bazaar.Presentation.App\libs\angular-resource.min.js
+		src\PM.Bazaar.Presentation.App\libs\angular-ui-router.min.js = src\PM.Bazaar.Presentation.App\libs\angular-ui-router.min.js
+		src\PM.Bazaar.Presentation.App\libs\angular.min.js = src\PM.Bazaar.Presentation.App\libs\angular.min.js
+		src\PM.Bazaar.Presentation.App\libs\bootstrap.bundle.min.js = src\PM.Bazaar.Presentation.App\libs\bootstrap.bundle.min.js
+		src\PM.Bazaar.Presentation.App\libs\croppie.min.js = src\PM.Bazaar.Presentation.App\libs\croppie.min.js
+		src\PM.Bazaar.Presentation.App\libs\jquery-3.3.1.min.js = src\PM.Bazaar.Presentation.App\libs\jquery-3.3.1.min.js
+		src\PM.Bazaar.Presentation.App\libs\loading-bar.min.js = src\PM.Bazaar.Presentation.App\libs\loading-bar.min.js
+		src\PM.Bazaar.Presentation.App\libs\mdb.min.js = src\PM.Bazaar.Presentation.App\libs\mdb.min.js
+		src\PM.Bazaar.Presentation.App\libs\ng-image-load.min.js = src\PM.Bazaar.Presentation.App\libs\ng-image-load.min.js
+		src\PM.Bazaar.Presentation.App\libs\ng-storage.min.js = src\PM.Bazaar.Presentation.App\libs\ng-storage.min.js
+		src\PM.Bazaar.Presentation.App\libs\popper.min.js = src\PM.Bazaar.Presentation.App\libs\popper.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "i18n", "i18n", "{54058EE9-6314-40B9-99E2-4F858B074CED}"
+	ProjectSection(SolutionItems) = preProject
+		src\PM.Bazaar.Presentation.App\libs\i18n\angular-locale_pt-br.js = src\PM.Bazaar.Presentation.App\libs\i18n\angular-locale_pt-br.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7C523A9-F7EF-4561-AA19-46108166B566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C523A9-F7EF-4561-AA19-46108166B566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C523A9-F7EF-4561-AA19-46108166B566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C523A9-F7EF-4561-AA19-46108166B566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A500A50E-7BF0-48C1-B6FC-0D25229ADCC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A500A50E-7BF0-48C1-B6FC-0D25229ADCC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A500A50E-7BF0-48C1-B6FC-0D25229ADCC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A500A50E-7BF0-48C1-B6FC-0D25229ADCC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D1A61AD-CB24-4124-B895-EE498EC4BE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D1A61AD-CB24-4124-B895-EE498EC4BE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D1A61AD-CB24-4124-B895-EE498EC4BE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D1A61AD-CB24-4124-B895-EE498EC4BE7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7940BFEA-DF0D-434E-BD46-1E7B41D420B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7940BFEA-DF0D-434E-BD46-1E7B41D420B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7940BFEA-DF0D-434E-BD46-1E7B41D420B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7940BFEA-DF0D-434E-BD46-1E7B41D420B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ED09C81-63B3-4F2B-A298-5B4C933D47B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED09C81-63B3-4F2B-A298-5B4C933D47B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED09C81-63B3-4F2B-A298-5B4C933D47B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED09C81-63B3-4F2B-A298-5B4C933D47B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30ED86F1-04A2-46CF-B130-72BBC7CD5AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30ED86F1-04A2-46CF-B130-72BBC7CD5AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30ED86F1-04A2-46CF-B130-72BBC7CD5AA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30ED86F1-04A2-46CF-B130-72BBC7CD5AA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD052411-802B-4A37-B9BD-188C2B37B00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD052411-802B-4A37-B9BD-188C2B37B00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD052411-802B-4A37-B9BD-188C2B37B00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD052411-802B-4A37-B9BD-188C2B37B00D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D8B9FCC3-BE84-4F4A-A04E-AC81C5954AC2} = {04AADCA2-41A0-4319-BE91-63109C450AF1}
+		{D299D001-5068-443B-BDFE-1051B0B3859B} = {04AADCA2-41A0-4319-BE91-63109C450AF1}
+		{A7C523A9-F7EF-4561-AA19-46108166B566} = {74430764-7EDB-435A-9DA8-9BFFA7D2E57F}
+		{A500A50E-7BF0-48C1-B6FC-0D25229ADCC2} = {37D34C2B-A5A7-40F2-B080-4F63FD628820}
+		{9D1A61AD-CB24-4124-B895-EE498EC4BE7F} = {D8B9FCC3-BE84-4F4A-A04E-AC81C5954AC2}
+		{7940BFEA-DF0D-434E-BD46-1E7B41D420B2} = {D299D001-5068-443B-BDFE-1051B0B3859B}
+		{0ED09C81-63B3-4F2B-A298-5B4C933D47B1} = {D299D001-5068-443B-BDFE-1051B0B3859B}
+		{30ED86F1-04A2-46CF-B130-72BBC7CD5AA3} = {D299D001-5068-443B-BDFE-1051B0B3859B}
+		{DD052411-802B-4A37-B9BD-188C2B37B00D} = {746419AD-08F8-4DE1-99DE-05E630F44A42}
+		{54449B87-455F-462C-B3A3-C9F09DAB95AF} = {DB4DE6AB-2144-4811-8549-685CA7139218}
+		{BFBECD6D-BAF1-43AE-BBF1-3CB1509A9F37} = {54449B87-455F-462C-B3A3-C9F09DAB95AF}
+		{D408FE30-945D-4D9E-B476-A4AA09C642CE} = {54449B87-455F-462C-B3A3-C9F09DAB95AF}
+		{8BA0E67F-3DE6-4599-BE65-E9C5B1C12316} = {54449B87-455F-462C-B3A3-C9F09DAB95AF}
+		{F2968DAC-2C06-4908-BB6E-B22A0E991FCA} = {54449B87-455F-462C-B3A3-C9F09DAB95AF}
+		{50F58969-6BF3-4D7D-8E73-E88B9FBEE94D} = {54449B87-455F-462C-B3A3-C9F09DAB95AF}
+		{34D1757E-41CA-42EC-9267-B6745C5740DD} = {54449B87-455F-462C-B3A3-C9F09DAB95AF}
+		{F0E6E71D-6F46-477B-B0F5-135554AA220F} = {DB4DE6AB-2144-4811-8549-685CA7139218}
+		{B08F9740-64BC-45E1-B38C-21D98E4E0D8F} = {DB4DE6AB-2144-4811-8549-685CA7139218}
+		{7633D77E-5A64-4E62-B5CF-83DFC0211860} = {B08F9740-64BC-45E1-B38C-21D98E4E0D8F}
+		{556ECC6B-CD1D-4163-B009-DC46AFC106CD} = {DB4DE6AB-2144-4811-8549-685CA7139218}
+		{B25DDABF-AA6F-4C7B-A028-65674F0071DC} = {556ECC6B-CD1D-4163-B009-DC46AFC106CD}
+		{B81E35FC-69CD-406F-922F-A35F12B83B98} = {DB4DE6AB-2144-4811-8549-685CA7139218}
+		{54058EE9-6314-40B9-99E2-4F858B074CED} = {B81E35FC-69CD-406F-922F-A35F12B83B98}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {363AA539-771E-400D-B82F-97EC619DA12E}
+	EndGlobalSection
+EndGlobal

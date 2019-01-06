@@ -1,0 +1,58 @@
+﻿<div class="col">
+    <div class="row white border border-light mx-sm-0 mx-2 p-4 mb-3 font-size-lg">
+        <div class="mr-auto ml-auto m-4">
+            <img src="img/logo-blue.png" />
+        </div>
+        <p>Bazaar é um projeto de uma aplicação SPA de código aberto desenvolvido com ASP.NET WebAPI e AngularJS.</p>
+        <p class="mb-5">O projeto tem como objetivo demonstrar a implementação de algumas das tecnologias e padrões mais usados no mercado e as melhores práticas de desenvolvimento de software.</p>
+        
+        <div class="col-md-4">
+            <div>
+                <h5 class="font-weight-bold">Arquitetura</h5>
+                <ul>
+                    <li>Domain Driven Design</li>
+                    <li>Repositório Genérico</li>
+                    <li>Injeção de Dependência</li>
+                    <li>Specification Query</li>
+                    <li>SOLID</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <h5 class="font-weight-bold">Tecnologias</h5>
+                <ul>
+                    <li>ASP.NET Web API</li>
+                    <li>ASP.NET Identity</li>
+                    <li>AutoMapper</li>
+                    <li>Simple Injector</li>
+                    <li>Entity Framework</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <h5 class="font-weight-bold">Front-end</h5>
+                <ul>
+                    <li>AngularJS</li>
+                    <li>MDBootstrap</li>
+                    <li>Croppie</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <h4 class="mx-2 mx-sm-0">Esses são nossos últimos anúncios</h4>
+
+    <div class="row">
+        <div ng-repeat="ad in vm.ads" class="col-lg-3 col-md-4 col-sm-6 mx-2 mx-sm-0 animated fadeIn">
+            <a ui-sref="ad({ id: ad.id })">
+                <div class="border border-light mt-2 mb-4 pt-5 pb-3 px-3 ad-card hoverable white">
+                    <img ng-image-load="/api/image/{{ ad.picture }}" class="w-100" alt="ad image">
+                    <h3 class="mt-3 font-weight-bold blue-text">{{ ad.price | currency:'R$' }}</h3>
+                    <span class="black-text">{{ ad.title }}</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

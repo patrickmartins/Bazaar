@@ -1,0 +1,123 @@
+﻿<div class="col-md-12 mb-4 px-0 px-sm-4 d-flex align-items-stretch">
+    <div class="border border-light p-2 p-sm-3 pt-4 p-md-4 px-lg-4 py-lg-5 div-center white" style="max-width: 900px; width: 100%">
+        <h3 class="mb-4 font-weight-bold">{{ vm.model.title }}</h3>
+
+        <div class="row flex-wrap-inverse">
+            <div class="col-lg-8 align-items-center border border-light py-3" style="overflow: hidden;">
+                <div id="adPictures" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div ng-repeat="picture in vm.model.pictures" ng-class="$index == 0 ? 'carousel-item active' : 'carousel-item'">
+                            <img ng-image-load="/api/image/{{ picture }}" class="d-block w-100">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" data-target="#adPictures" role="button" data-slide="prev" ng-show="vm.model.pictures.length > 1">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="carousel-control-next" data-target="#adPictures" role="button" data-slide="next" ng-show="vm.model.pictures.length > 1">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                </div>
+                <div id="adThumbs" class="thumbnail-list" data-ride="carousel">
+                    <div class="thumbnail-itens">
+                        <a ng-repeat="picture in vm.model.pictures" data-target="#adPictures" data-slide-to="{{ $index }}" ng-class="$index == 0 ? 'active' : ''">
+                            <img ng-image-load="/api/image/{{ picture }}" class="carousel-thumb">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">    
+                <div class="ad-info d-xsm-inline-flex w-100 d-sm-inline-flex d-lg-block">
+                    <div class="advertiser pb-sm-3 pb-lg-0 pb-3 w-100">
+                        <h6 class="mb-2 font-weight-bold">Anunciado por:</h6>
+                        <img ng-image-load="/api/image/{{ vm.model.advertiser.avatar }}" class="rounded-circle z-depth-0" alt="avatar image">
+                        <span class="font-weight-bold blue-text mr-1">{{ vm.model.advertiser.name }}</span>
+                    </div>
+                    <div class="price w-100 text-md-center text-lg-left">
+                        <span>{{vm.model.price | currency:'R$' }}</span>
+                    </div>
+                    <button class="btn btn-outline-amber btn-rounded waves-effect waves-light btn-question w-100 px-md-0 mx-0" ng-click="vm.clickAsk()" ng-if="vm.model.advertiser.id != vm.accountService.user.id">Fazer uma pergunta</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-4 mb-4"> 
+                <h4 class="mb-4 font-weight-bold">Descrição</h4>
+                <p style="white-space: pre-line">{{ vm.model.description }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-4" style="overflow: hidden"> 
+                <h4 class="mb-4 font-weight-bold">Perguntas e respostas</h4>
+                
+                <form id="formAsk" name="formAsk" bazaar-errors="vm.errors" ng-if="vm.accountService.isAuthenticated && vm.model.advertiser.id != vm.accountService.user.id" ng-submit="vm.ask(formAsk)" class="advertiser d-block mb-5 pb-sm-3 pb-md-0 pb-3">
+                    <div class=" mr-2 d-inline-flex w-responsive" ng-messages="formAsk.description.$error" role="alert">
+                        <img ng-image-load="/api/image/{{ vm.accountService.user.avatar }}" class="rounded-circle z-depth-0 mr-2" alt="avatar image">
+                        
+                        <div class="d-block w-100">
+                            <input name="description" type="text" id="description" placeholder="Escreva sua pergunta..." ng-model="vm.question.description" ng-class="formAsk.description.$invalid && formAsk.description.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="5" ng-maxlength="2000" class="form-control">
+
+                            <div class="invalid-feedback" ng-message="required">A pergunta não pode ser vazia</div>
+                            <div class="invalid-feedback" ng-message="minlength || maxlength">A pergunta deve conter no minímo 5 e no máximo 2000 caracteres</div>  
+                            <div class="invalid-feedback" bazaar-error="vm.formAsk.description"></div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-amber btn-rounded waves-effect waves-light m-0 py-2 px-sm-0 px-1 px-md-2 align-top ask-btn" type="submit" ng-disabled="formAsk.$invalid || formAsk.$submitted">Perguntar</button>
+                </form>
+                
+                <h6 class="mb-4 font-weight-bold text-center" ng-if="vm.model.questions.length == 0">Ninguém fez perguntas ainda. Seja o primeiro!</h6>
+
+                <ul class="question-list p-0 w-100">
+                    <li ng-repeat="question in vm.model.questions | orderBy:'-date'" class="animated fadeInLeft" ng-model="question">
+                        <div class="d-inline-flex w-100">
+                            <img ng-image-load="/api/image/{{ question.user.avatar }}" class="rounded-circle z-depth-0 mr-2 mr-sm-3 mt-1 d-xsm-block d-none" alt="avatar image">
+                            <div class="w-100">
+                                <div class="rounded border border-light p-3 w-100 mb-2 mb-sm-2 mb-md-3 speech-bubble left">
+                                    <div>
+                                        <h6 class="blue-text d-inline-block font-size-sm font-weight-bold">{{ question.user.name }}</h6>
+                                        <h6 class="text-black-50 ml-2 d-inline-block float-right font-size-sm" title="{{ question.date | prettyDate:'full' }}">{{ question.date | prettyDate:'elapsed' }}</h6>
+                                    </div>
+                                    <span class="m-0">{{ question.description }}</span>
+
+                                    <a class="float-right amber-text" title="Responder" ng-show="!question.answering" ng-if="!question.response && vm.accountService.isAuthenticated && vm.model.advertiser.id == vm.accountService.user.id" ng-click="vm.openFormAnswer(question)">
+                                        <i class="fa fa-reply" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="d-inline-flex w-100 mb-2 mb-sm-2 mb-md-3 animated fadeInRight" ng-if="question.response">
+                                    <div class="w-100 ml-0 ml-sm-3 ml-md-5 blue lighten-5">
+                                        <div class="rounded border border-light p-3 w-100 speech-bubble right">
+                                            <div>
+                                                <h6 class="text-black-50 mr-2 d-inline-block font-size-sm" title="{{ question.response.date | prettyDate:'full' }}">{{ question.response.date | prettyDate:'elapsed' }}</h6>
+                                                <h6 class="blue-text d-inline-block float-right font-size-sm">{{ vm.model.advertiser.name }}</h6>
+                                            </div>
+                                            <span class="m-0">{{ question.response.description }}</span>
+                                        </div>
+                                    </div>
+
+                                    <img ng-image-load="/api/image/{{ vm.model.advertiser.avatar }}" class="rounded-circle z-depth-0 ml-2 ml-sm-3 mt-1 d-xsm-block d-none" alt="avatar image">
+                                </div>
+                                <form name="formAnswer" bazaar-errors="vm.errors" ng-if="!question.response && question.answering" ng-submit="vm.answer(formAnswer, question)" class="advertiser d-block pb-3 animated fadeIn">
+                                    <div class="d-inline-flex w-responsive mr-2" ng-messages="formAnswer.description.$error" role="alert">
+                                        <div class="d-block w-100">
+                                            <input name="description" type="text" placeholder="Escreva sua resposta..." ng-model="vm.response.description" ng-class="formAnswer.description.$invalid && formAnswer.description.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="5" ng-maxlength="2000" class="form-control">
+
+                                            <div class="invalid-feedback" ng-message="required">A resposta não pode ser vazia</div>
+                                            <div class="invalid-feedback" ng-message="minlength || maxlength">A resposta deve conter no minímo 5 e no máximo 2000 caracteres</div>
+                                            <div class="invalid-feedback" bazaar-error="formAnswer.description"></div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-amber waves-effect btn-rounded waves-light m-0 py-2 px-sm-0 px-1 px-md-2 my-2 my-sm-2 my-md-0 align-top ask-btn" type="submit" ng-disabled="formAnswer.$invalid || formAnswer.$submitted">Responder</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

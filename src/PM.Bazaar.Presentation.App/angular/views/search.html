@@ -1,0 +1,81 @@
+﻿<div ng-if="(vm.ads.length == 0 || vm.filter.keywordSearch.length < 3) && !vm.searching" class="border border-light white my-5">
+    <h5 class="p-4 p-sm-5 text-center"><i class="fa fa-search p-2 mr-2 amber-text"></i>Não há anúncios que coincidam com a sua busca.</h5>
+</div>
+<div class="row mx-0">
+    <div class="col-lg-3 col-md-4 accordion px-4" ng-if="vm.ads.length > 0 && vm.filter.keywordSearch.length >= 3 && !vm.searching" id="accordionFilters">
+        <div class="my-2 d-block d-md-none text-right">
+            <button data-toggle="collapse" data-parent="#accordionFilters" data-target="#filters" aria-expanded="true" aria-controls="filters" class="btn btn-outline-amber waves-effect waves-light btn-rounded p-0 m-0">
+                <i class="fa fa-bars p-2"></i>
+            </button>
+        </div>
+        <div id="filters" class="collapse d-md-block ">
+            <div class="border border-light mt-2 mb-3 white" style="display: grid">
+                <h6 class="light-blue lighten-1 white-text text-uppercase text-center py-1">Organização</h6>
+                <div class="px-3 pt-2 pb-3">
+                    <select class="form-control" ng-model="vm.filter.order">
+                        <option value="" disabled selected>Organizar por </option>
+                        <option value="maxPrice">Maior preço</option>
+                        <option value="minPrice">Menor preço</option>
+                        <option value="date">Data de publicação</option>
+                    </select>
+                </div>
+            </div>
+            <div class="border border-light my-2 white" style="display: grid">
+                <h6 class="light-blue lighten-1 white-text text-uppercase text-center py-1">Categorias</h6>
+                <div class="px-3 pt-2 pb-3">
+                    <div ng-repeat="category in vm.categories" class="custom-control custom-checkbox mb-1">
+                        <input type="checkbox" class="custom-control-input" id="category_{{ category.id }}" value="{{ category.id }}" ng-click="vm.addCategoryFilter(category.id)">
+                        <label class="custom-control-label" for="category_{{ category.id }}">{{ category.name }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="border border-light my-3 white" style="display: grid">
+                <h6 class="light-blue lighten-1 white-text text-uppercase text-center py-1">Preço</h6>
+                <div class="px-3 pt-2 pb-3">
+                    <table class="w-100">
+                        <tr class="my-2">
+                            <td>
+                                <label for="priceMax" class="mb-0 my-2">Máx.</label>
+                            </td>
+                            <td>
+                                <input type="range" class="custom-range" id="priceMax" min="0" max="1000" step="20" ng-model="vm.filter.maxPrice">
+                            </td>
+                            <td style="width: 60px;">
+                                <span class="ml-1">{{  vm.filter.maxPrice | currency:'R$' }}</span>
+                            </td>
+                        </tr>
+                        <tr class="my-2">
+                            <td>
+                                <label for="priceMin" class="mb-0 my-2">Min.</label>
+                            </td>
+                            <td>
+                                <input type="range" class="custom-range" id="priceMin" min="0" max="1000" step="20" ng-model="vm.filter.minPrice">
+                            </td>
+                            <td style="width: 60px;">
+                                <span class="ml-1">{{ vm.filter.minPrice | currency:'R$' }}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="border border-light my-2 mb-5 white">
+                <div class="mx-sm-5 mx-md-3 mx-lg-4 mx-5">
+                    <button class="btn btn-amber waves-effect btn-rounded waves-light py-1 px-md-2 m-0 my-3 w-100" ng-click="vm.applyFilter()">Aplicar filtros</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div ng-repeat="ad in vm.ads" class="col-lg-4 col-sm-6 mx-2 mx-sm-0 animated fadeIn">
+                <a ui-sref="ad({ id: ad.id })">
+                    <div class="border border-light mt-2 mb-4 pt-5 pb-3 px-3 ad-card hoverable white">
+                        <img ng-image-load="/api/image/{{ ad.picture }}" class="w-100" alt="ad image">
+                        <h3 class="mt-3 font-weight-bold blue-text">{{ad.price | currency:'R$' }}</h3>
+                        <span class="black-text">{{ ad.title }}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

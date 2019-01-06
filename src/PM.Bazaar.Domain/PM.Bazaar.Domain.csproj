@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A500A50E-7BF0-48C1-B6FC-0D25229ADCC2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PM.Bazaar.Domain</RootNamespace>
+    <AssemblyName>PM.Bazaar.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enuns\OrderType.cs" />
+    <Compile Include="Interfaces\Entity\Entity.cs" />
+    <Compile Include="Interfaces\Specification\ISpecificationQuery.cs" />
+    <Compile Include="Interfaces\Repositories\IAdRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoryRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPictureRepository.cs" />
+    <Compile Include="Interfaces\Services\ICategoryService.cs" />
+    <Compile Include="Interfaces\Services\IImageService.cs" />
+    <Compile Include="Interfaces\Repositories\Common\IRepository.cs" />
+    <Compile Include="Interfaces\Result\IResult.cs" />
+    <Compile Include="Interfaces\Services\IAdvertisingService.cs" />
+    <Compile Include="Interfaces\UnitOfWork\IUoW.cs" />
+    <Compile Include="Interfaces\Validation\Validation.cs" />
+    <Compile Include="Interfaces\Validation\IValidator.cs" />
+    <Compile Include="Entities\Ad.cs" />
+    <Compile Include="Entities\Question.cs" />
+    <Compile Include="Entities\Response.cs" />
+    <Compile Include="Entities\Advertiser.cs" />
+    <Compile Include="Specification\Specifications\Ad\WithCategory.cs" />
+    <Compile Include="Specification\Specifications\Ad\WithKeywordInTitle.cs" />
+    <Compile Include="Values\Error.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Image.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Values\Result.cs" />
+    <Compile Include="Services\AdvertisingService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\Common\Service.cs" />
+    <Compile Include="Services\ImageService.cs" />
+    <Compile Include="Specification\SpecificationQuery.cs" />
+    <Compile Include="Specification\Specifications\Common\AndSpecification.cs" />
+    <Compile Include="Specification\Specifications\Common\OrSpecification.cs" />
+    <Compile Include="Specification\Specifications\Ad\MaxPrice.cs" />
+    <Compile Include="Specification\Specifications\Ad\MinPrice.cs" />
+    <Compile Include="Specification\Util\ParameterRebinder.cs" />
+    <Compile Include="Validations\Advertiser\FormatLastNameValidation.cs" />
+    <Compile Include="Validations\Advertiser\LengthLastNameValidation.cs" />
+    <Compile Include="Validations\Ad\CategoryExistValidation.cs" />
+    <Compile Include="Validations\Ad\LengthDescriptionValidation.cs" />
+    <Compile Include="Validations\Ad\CountPicturesValidation.cs" />
+    <Compile Include="Validations\Ad\MinPriceValidation.cs" />
+    <Compile Include="Validations\Ad\LengthTitleValidation.cs" />
+    <Compile Include="Validations\Picture\PictureEmptyValidation.cs" />
+    <Compile Include="Validations\Question\LengthQuestionValidation.cs" />
+    <Compile Include="Validations\Response\LengthResponseValidation.cs" />
+    <Compile Include="Validations\Advertiser\FormatNameValidation.cs" />
+    <Compile Include="Validations\Advertiser\LengthNameValidation.cs" />
+    <Compile Include="Validations\Advertiser\PictureRequiredValidation.cs" />
+    <Compile Include="Validators\AdValidator.cs" />
+    <Compile Include="Validators\Common\Validator.cs" />
+    <Compile Include="Validators\PictureValidator.cs" />
+    <Compile Include="Validators\QuestionValidator.cs" />
+    <Compile Include="Validators\ResponseValidator.cs" />
+    <Compile Include="Validators\AdvertiserValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PM.Bazaar.Infrastructure.CrossCutting.Configuration\PM.Bazaar.Infrastructure.CrossCutting.Configuration.csproj">
+      <Project>{30ed86f1-04a2-46cf-b130-72bbc7cd5aa3}</Project>
+      <Name>PM.Bazaar.Infrastructure.CrossCutting.Configuration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Bazaar</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/mdb.min.css" rel="stylesheet" />
+    <link href="css/style.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/loading-bar.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://rawgit.com/Foliotek/Croppie/master/croppie.css" />
+</head>
+<body ng-app="bazaar-app" class="grey lighten-5">
+    <nav class="navbar navbar-expand-lg navbar-dark light-blue fixed-top lighten-1 px-2" ng-controller="navbar-controller as vm">
+        <button class="navbar-toggler p-0 d-sm-none waves-effect waves-light" type="button" data-toggle="collapse" data-target="#input-search">
+            <i class="fa fa-search p-2"></i>
+        </button>
+
+        <form name="search" class="form-inline my-0 ml-auto mr-auto search-form pr-2" ng-submit="vm.search(keyword)">
+            <a class="navbar-brand mr-0 mr-sm-3 pl-4 pl-sm-0" ui-sref="home"><img class="logo" src="img/logo.png" /></a>
+            <div id="input-search" class="waves-input-wrapper waves-effect waves-light">
+                <input name="keyword" ng-class="input-search.$invalid && input-search.$dirty ? 'form-control is-invalid' : 'form-control'" class="form-control d-none d-sm-none d-sm-inline-flex animated slideInDown faster" ng-model="keyword" type="search" placeholder="Pesquisar" ng-minlength="3" aria-label="Pesquisar">
+            </div>
+        </form>
+
+        <ul ng-if="vm.accountService.isAuthenticated" class="navbar-nav nav-flex-icons">
+            <li class="nav-item avatar dropdown">
+                <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="z-index:0">
+                    <img ng-image-load="/api/image/{{ vm.accountService.user.avatar }}" style="background-color: white" class="rounded-circle z-depth-0">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item waves-effect waves-light" ui-sref="publish">Anunciar</a>
+                    <a class="dropdown-item waves-effect waves-light" ui-sref="account">Minha Conta</a>
+                    <a class="dropdown-item waves-effect waves-light" ng-click="vm.logout()">Sair</a>
+                </div>
+            </li>
+        </ul>
+
+        <ul ng-if="!vm.accountService.isAuthenticated" class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" ui-sref="login" style="margin: 4px">Login</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container px-1 px-sm-3 mt-md-5 pt-5 mt-sm-4 mt-4 animated fadeIn" ui-view="main"></div>
+
+    <script src="libs/jquery-3.3.1.min.js"></script>
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-resource.min.js"></script>
+    <script src="libs/loading-bar.min.js"></script>
+    <script src="libs/angular-ui-router.min.js"></script>
+    <script src="libs/bootstrap.bundle.min.js"></script>
+    <script src="libs/ng-storage.min.js"></script>
+    <script src="libs/angular-messages.min.js"></script>
+    <script src="libs/croppie.min.js"></script>
+    <script src="libs/ng-image-load.min.js"></script>
+    <script src="libs/mdb.min.js"></script>
+    <script src="libs/popper.min.js"></script>
+    <script src="libs/i18n/angular-locale_pt-br.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="angular/app.js"></script>
+    <script src="angular/factories/bazaar-service.js"></script>
+    <script src="angular/factories/interceptor.js"></script>
+    <script src="angular/filters/prettydate-filter.js"></script>
+    <script src="angular/directives/croppie.js"></script>
+    <script src="angular/directives/bazaar-validation.js"></script>
+    <script src="angular/directives/bazaar-errors.js"></script>
+    <script src="angular/directives/bazaar-error.js"></script>
+    <script src="angular/services/account-service.js"></script>
+    <script src="angular/services/advertising-service.js"></script>
+    <script src="angular/controllers/navbar-controller.js"></script>
+    <script src="angular/controllers/search-controller.js"></script>
+    <script src="angular/controllers/account-controller.js"></script>
+    <script src="angular/controllers/advertising-controller.js"></script>
+    <script src="angular/controllers/home-controller.js"></script>
+</body>
+</html>

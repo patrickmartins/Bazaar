@@ -1,0 +1,90 @@
+﻿<form id="form" name="vm.form" bazaar-errors="vm.errors" ng-submit="vm.publish()">
+    <div class="col-md-12 mb-4 px-0 px-sm-4 d-flex align-items-stretch">
+        <div class="border border-light p-3 pt-4 p-md-4 p-lg-5 div-center white" style="max-width: 700px; width: 100%">
+            <div class="form-group" ng-messages="vm.form.title.$error" role="alert">
+                <label for="title">Titulo</label>
+                <input name="title" type="text" id="title" ng-model="vm.model.title" ng-class="vm.form.title.$invalid && vm.form.title.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="5" ng-maxlength="60" class="form-control">
+
+                <div class="invalid-feedback" ng-message="required">Informe o título do seu anúncio</div>
+                <div class="invalid-feedback" ng-message="minlength || maxlength">O título deve conter no mínimo 5 e no máximo 60 caracteres</div>
+                <div class="invalid-feedback" bazaar-error="vm.form.title"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col" ng-messages="vm.form.category.$error" role="alert">
+                    <label for="category">Categoria</label>
+                    <select id="category" name="category" ng-model="vm.model.idcategory" ng-class="vm.form.category.$invalid && vm.form.category.$dirty ? 'form-control is-invalid' : 'form-control'" required class="form-control">
+                        <option ng-repeat="category in vm.categories" value="{{category.id}}">{{category.name}}</option>
+                    </select>
+
+                    <div class="invalid-feedback" ng-message="required">Informe a categoria do item de seu anúncio</div>
+                </div>
+
+                <div class="form-group col-4" ng-messages="vm.form.price.$error" role="alert">
+                    <label for="title">Preço</label>
+                    <input name="price" type="number" step="any" id="price" ng-model="vm.model.price" ng-class="vm.form.price.$invalid && vm.form.price.$dirty ? 'form-control is-invalid' : 'form-control'" min="5" max="1000" bazaar-validation required class="form-control">
+
+                    <div class="invalid-feedback" ng-message="min || max">O preço do item deve ser no mínimo R$5 e no máximo R$1000</div>
+                    <div class="invalid-feedback" ng-message="required">Informe o preço do item de seu anúncio</div>
+                    <div class="invalid-feedback" bazaar-error="vm.form.price"></div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-messages="vm.form.description.$error" role="alert">
+                <label for="description">Descrição</label>
+                <textarea id="description" name="description" rows="5" ng-class="vm.form.description.$invalid && vm.form.description.$dirty ? 'form-control is-invalid' : 'form-control'" ng-model="vm.model.description" bazaar-validation ng-minlength="100" ng-maxlength="5000" required></textarea>
+
+                <div class="invalid-feedback" ng-message="required">Deixe uma descrição em seu anúncio</div>
+                <div class="invalid-feedback" ng-message="minlength || maxlength">A descrição deve conter no mínimo 100 e no máximo 5000 caracteres</div>
+                <div class="invalid-feedback" bazaar-error="vm.form.description"></div>
+            </div>
+
+            <div class="form-group" style="overflow: hidden">
+                <label for="description">Adicione imagens em seu anúncio</label>
+                <div id="adPictures" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div ng-repeat="picture in vm.pictures" ng-class="$index == 0 ? 'carousel-item active' : 'carousel-item'">
+                            <div class="loading-picture-ad" ng-show="!picture.loaded">
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <img ng-image-load="{{ picture.url }}" class="d-block w-100">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" data-target="#adPictures" role="button" data-slide="prev" ng-show="vm.pictures.length > 1">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="carousel-control-next" data-target="#adPictures" role="button" data-slide="next" ng-show="vm.pictures.length > 1">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                </div>
+                <div id="adThumbs" class="thumbnail-list" data-ride="carousel">
+                    <div class="thumbnail-itens">
+                        <a ng-repeat="picture in vm.pictures" data-target="#adPictures" data-slide-to="{{ $index }}" ng-class="$index == 0 ? 'active' : ''">
+                            <div class="loading-picture-ad" ng-show="!picture.loaded">
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <img ng-image-load="{{ picture.url }}" class="carousel-thumb">
+                        </a>
+                        <div class="carousel-thumb" ng-show="vm.pictures.length < 5 && !vm.form.$submitted">
+                            <input type="file" id="pictureFile" style="display: none" accept="image/*" />
+                            <a class="add-image" ng-click="vm.openPicture()">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="invalid-feedback" ng-style="(!vm.model.pictures || vm.model.pictures.length <= 0) ? {'display':'block'} : {'display':'none'}">Adicione ao menos uma imagem em seu anúncio</div>
+                <div class="invalid-feedback" ng-style="(vm.errors[0].source === 'Image') ? {'display':'block'} : {'display':'none'}">{{ vm.errors[0].description }}</div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-amber waves-effect waves-light btn-rounded" type="submit" ng-disabled="vm.form.$invalid || vm.form.$submitted || !vm.model.pictures || vm.model.pictures.length <= 0">Publicar</button>
+            </div>
+        </div>
+    </div>
+</form>
+

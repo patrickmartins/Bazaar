@@ -1,0 +1,80 @@
+﻿<div class="card ml-auto mr-auto z-depth-0 border border-light mt-3 mt-sm-3 mt-sm-0" style="max-width: 400px;">
+    <form name="vm.form" bazaar-errors="vm.errors" class="card-body profile-form" ng-submit="vm.changePassword()">
+        <div class="card-up light-blue lighten-1 white-text text-uppercase text-center py-3"><h4>Perfil</h4></div>
+        <div class="profile-avatar mx-auto white">
+            <img ng-image-load="/api/image/{{ vm.service.user.avatar }}" />
+            <div class="icon-upload amber rounded-circle">
+                <input id="pictureFile" type="file" style="display: none" accept="image/*" />
+                <span href="" class="rounded-circle">
+                    <i ng-click="vm.openPicture()" class="fa fa-camera"></i>
+                </span>
+            </div>
+        </div>
+        
+        <input name="image" type="text" id="image" style="display: none" ng-model="vm.model.hidden" bazaar-validation disabled class="form-control">
+        <div class="invalid-feedback" style="text-align: center; font-size: 14px" bazaar-error="vm.form.image"></div>
+
+        <div class="form-group" role="alert">
+            <label for="name">Nome</label>
+            <input name="name" type="text" id="name" value="{{ vm.service.user.name }}" disabled class="form-control">
+        </div>
+        
+        <div class="form-group" role="alert">
+            <label for="lastname">Sobrenome</label>
+            <input name="lastname" type="text" id="lastname" value="{{ vm.service.user.lastName }}" disabled class="form-control">
+        </div>
+
+        <div class="form-group" role="alert">
+            <label for="email">E-mail</label>
+            <input name="email" type="email" id="email" value="{{ vm.service.user.email }}" disabled class="form-control">
+        </div>
+
+        <div class="form-group" ng-messages="vm.form.currentpassword.$error" role="alert">
+            <label for="currentpassword">Senha atual</label>
+            <input name="currentpassword" id="currentpassword" type="password" ng-model="vm.model.currentpassword" ng-class="vm.form.currentpassword.$invalid && vm.form.currentpassword.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="6" ng-maxlength="15" class="form-control">
+
+            <div class="invalid-feedback" ng-message="required">Informe sua senha antiga</div>
+            <div class="invalid-feedback" ng-message="minlength || maxlength">A senha deve conter no minímo 6 e no máximo 15 caracteres</div>
+            <div class="invalid-feedback" bazaar-error="vm.form.currentpassword"></div>
+        </div>
+
+        <div class="form-group" ng-messages="vm.form.password.$error" role="alert">
+            <label for="password">Nova senha</label>
+            <input name="password" id="password" type="password" ng-model="vm.model.password" ng-class="vm.form.password.$invalid && vm.form.password.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="6" ng-maxlength="15" class="form-control">
+
+            <div class="invalid-feedback" ng-message="required">Informe sua nova senha</div>
+            <div class="invalid-feedback" ng-message="minlength || maxlength">A senha deve conter no minímo 6 e no máximo 15 caracteres</div>
+            <div class="invalid-feedback" bazaar-error="vm.form.password"></div>
+        </div>
+
+        <div class="form-group" ng-messages="vm.form.confirmpassword.$error" role="alert">
+            <label for="confirmpassword">Confirme sua nova senha</label>
+            <input name="confirmpassword" id="confirmpassword" type="password" ng-model="vm.model.confirmpassword" ng-class="vm.form.confirmpassword.$invalid && vm.form.confirmpassword.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="6" ng-maxlength="15" class="form-control">
+
+            <div class="invalid-feedback" ng-message="required">Confirme sua nova senha</div>
+            <div class="invalid-feedback" bazaar-error="vm.form.confirmpassword"></div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-amber waves-effect waves-light btn-rounded" type="submit" ng-disabled="vm.form.$invalid || vm.disable">Alterar</button>
+        </div>
+    </form>
+    
+    <div class="modal fade" id="croppmodal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-notify modal-dialog-centered modal-info" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <croppie src="vm.model.image" ng-model="vm.model.newimage" options="{ boundary: { height: 450 }, viewport: { width: 250, height: 250 }}"></croppie>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-amber waves-effect waves-light btn-rounded" ng-click="vm.changeAvatar()" data-dismiss="modal">Alterar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

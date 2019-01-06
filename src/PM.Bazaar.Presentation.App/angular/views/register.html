@@ -1,0 +1,52 @@
+﻿<div class="card ml-auto mr-auto z-depth-0 border border-light" style="max-width: 400px; margin-top: 8%;">
+    <h4 class="card-header light-blue lighten-1 white-text text-uppercase text-center py-3">Cadastro</h4>
+    <form name="vm.form" bazaar-errors="vm.errors" class="card-body" ng-submit="vm.register()">
+        <div class="form-group" ng-messages="vm.form.name.$error" role="alert">
+            <label for="name">Nome</label>
+            <input name="name" type="text" id="name" ng-model="vm.model.name" ng-class="vm.form.name.$invalid && vm.form.name.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="5" ng-maxlength="15" class="form-control">
+
+            <div class="invalid-feedback" ng-message="required">Informe seu nome</div>
+            <div class="invalid-feedback" ng-message="minlength || maxlength">O nome deve conter no mínimo 5 e no máximo 15 caracteres</div>
+            <div class="invalid-feedback" bazaar-error="vm.form.name"></div>
+        </div>
+        
+        <div class="form-group" ng-messages="vm.form.lastname.$error" role="alert">
+            <label for="lastname">Sobrenome</label>
+            <input name="lastname" type="text" id="lastname" ng-model="vm.model.lastname" ng-class="vm.form.lastname.$invalid && vm.form.lastname.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="5" ng-maxlength="30" class="form-control">
+
+            <div class="invalid-feedback" ng-message="required">Informe seu sobrenome</div>
+            <div class="invalid-feedback" ng-message="minlength || maxlength">O sobrenome deve conter no mínimo 5 e no máximo 30 caracteres</div>
+            <div class="invalid-feedback" bazaar-error="vm.form.lastname"></div>
+        </div>
+
+        <div class="form-group" ng-messages="vm.form.email.$error" role="alert">
+            <label for="email">E-mail</label>
+            <input name="email" type="email" id="email" ng-model="vm.model.email" ng-class="vm.form.email.$invalid && vm.form.email.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation ng-pattern="/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/" required ng-minlength="6" ng-maxlength="60" class="form-control">
+
+            <div class="invalid-feedback" ng-message="required">Informe seu email</div>
+            <div class="invalid-feedback" ng-message="minlength || maxlength || pattern">O e-mail informado não é válido</div>
+            <div class="invalid-feedback" bazaar-error="vm.form.email"></div>
+        </div>
+
+        <div class="form-group" ng-messages="vm.form.password.$error" role="alert">
+            <label for="password">Senha</label>
+            <input name="password" id="password" type="password" ng-model="vm.model.password" ng-class="vm.form.password.$invalid && vm.form.password.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="6" ng-maxlength="15" class="form-control">
+
+            <div class="invalid-feedback" ng-message="required">Informe sua senha</div>
+            <div class="invalid-feedback" ng-message="minlength || maxlength">A senha deve conter no minímo 6 e no máximo 15 caracteres</div>
+            <div class="invalid-feedback" bazaar-error="vm.form.password"></div>
+        </div>
+
+        <div class="form-group" ng-messages="vm.form.confirmpassword.$error" role="alert">
+            <label for="confirmpassword">Confirme sua senha</label>
+            <input name="confirmpassword" id="confirmpassword" type="password" ng-model="vm.model.confirmpassword" ng-class="vm.form.confirmpassword.$invalid && vm.form.confirmpassword.$dirty ? 'form-control is-invalid' : 'form-control'" bazaar-validation required ng-minlength="6" ng-maxlength="15" class="form-control">
+
+            <div class="invalid-feedback" ng-message="required">Confirme sua senha</div>
+            <div class="invalid-feedback" bazaar-error="vm.form.confirmpassword"></div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-amber waves-effect waves-light btn-rounded" type="submit" ng-disabled="vm.form.$invalid || vm.form.$submitted">Cadastrar</button>
+        </div>
+    </form>
+</div>
