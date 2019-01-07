@@ -1,4 +1,4 @@
-<img src="http://bazaarweb.azurewebsites.net/app/img/logo-blue.png" alt="Bazaar"> 
+<img src="http://bazaarweb.azurewebsites.net/img/logo-blue.png" alt="Bazaar"> 
 
 Bazaar é um projeto de uma aplicação SPA de código aberto desenvolvido com ASP.NET WebAPI e AngularJS.
 
