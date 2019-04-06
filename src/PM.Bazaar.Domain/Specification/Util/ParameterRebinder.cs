@@ -5,11 +5,11 @@ namespace PM.Bazaar.Domain.Specification.Util
 {
     internal class ParameterRebinder : ExpressionVisitor
     {
-        private readonly Dictionary<ParameterExpression, ParameterExpression> map;
+        private readonly Dictionary<ParameterExpression, ParameterExpression> _map;
 
         public ParameterRebinder(Dictionary<ParameterExpression, ParameterExpression> map)
         {
-            this.map = map ?? new Dictionary<ParameterExpression, ParameterExpression>();
+            this._map = map ?? new Dictionary<ParameterExpression, ParameterExpression>();
         }
 
         public static Expression ReplaceParameters(Dictionary<ParameterExpression, ParameterExpression> map, Expression exp)
@@ -19,7 +19,9 @@ namespace PM.Bazaar.Domain.Specification.Util
 
         protected override Expression VisitParameter(ParameterExpression parameter)
         {
-            if (map.TryGetValue(parameter, out var replacement))
+            ParameterExpression replacement;
+
+            if (_map.TryGetValue(parameter, out replacement))
                 parameter = replacement;
 
             return base.VisitParameter(parameter);

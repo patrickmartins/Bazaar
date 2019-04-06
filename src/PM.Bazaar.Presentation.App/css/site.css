@@ -5,6 +5,7 @@
 
 .navbar .nav-item.avatar .dropdown-toggle img {
     width: 32px;
+    border: 2px solid white;
 }
 
 .navbar .form-inline .navbar-brand {

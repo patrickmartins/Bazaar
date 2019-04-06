@@ -36,7 +36,7 @@
                         <span class="font-weight-bold blue-text mr-1">{{ vm.model.advertiser.name }}</span>
                     </div>
                     <div class="price w-100 text-md-center text-lg-left">
-                        <span>{{vm.model.price | currency:'R$' }}</span>
+                        <span>{{vm.model.price | currency:'R$ ' }}</span>
                     </div>
                     <button class="btn btn-outline-amber btn-rounded waves-effect waves-light btn-question w-100 px-md-0 mx-0" ng-click="vm.clickAsk()" ng-if="vm.model.advertiser.id != vm.accountService.user.id">Fazer uma pergunta</button>
                 </div>
