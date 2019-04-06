@@ -2,7 +2,7 @@
     <h5 class="p-4 p-sm-5 text-center"><i class="fa fa-search p-2 mr-2 amber-text"></i>Não há anúncios que coincidam com a sua busca.</h5>
 </div>
 <div class="row mx-0">
-    <div class="col-lg-3 col-md-4 accordion px-4" ng-if="vm.ads.length > 0 && vm.filter.keywordSearch.length >= 3 && !vm.searching" id="accordionFilters">
+    <div class="col-lg-3 col-md-4 accordion px-4" ng-show="vm.ads.length > 0 && vm.filter.keywordSearch.length >= 3 && !vm.searching" id="accordionFilters">
         <div class="my-2 d-block d-md-none text-right">
             <button data-toggle="collapse" data-parent="#accordionFilters" data-target="#filters" aria-expanded="true" aria-controls="filters" class="btn btn-outline-amber waves-effect waves-light btn-rounded p-0 m-0">
                 <i class="fa fa-bars p-2"></i>
@@ -71,7 +71,7 @@
                 <a ui-sref="ad({ id: ad.id })">
                     <div class="border border-light mt-2 mb-4 pt-5 pb-3 px-3 ad-card hoverable white">
                         <img ng-image-load="/api/image/{{ ad.picture }}" class="w-100" alt="ad image">
-                        <h3 class="mt-3 font-weight-bold blue-text">{{ad.price | currency:'R$' }}</h3>
+                        <h3 class="mt-3 font-weight-bold blue-text">{{ad.price | currency:'R$ ' }}</h3>
                         <span class="black-text">{{ ad.title }}</span>
                     </div>
                 </a>
